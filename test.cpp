@@ -68,6 +68,29 @@ string translator(string input) {
     return result;
 }
 
+string returner(string word) {
+    string filename = word + ".txt";
+    ifstream wordFile(filename);
+
+    mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+    uniform_int_distribution<int> dist(0, 5);
+    int line = dist(rng); //Random number for picking random language translation of word
+
+    if (!wordFile.is_open()) {
+        cout << "Unable to open file wordList." << endl;
+        return "something went really bad :(";
+    }
+
+    string language;
+    for (int i = 1; i <= line; ++i) {
+        if (!getline(wordFile, language)) {
+            std::cerr << "File contains fewer than " << line << " lines." << std::endl;
+            return "";
+        }
+    }
+    return language;
+}
+
 bool findWordInFile(char filename[], string word) {
     string list;
     ifstream wordList(filename);
