@@ -2,12 +2,7 @@
 
 using namespace std;
 
-
-// Function that checks if a given string is a valid math problem
-//bool isMathProblem(const string& str) {
-//    return 0;
-//}
-
+// Writer: Isaac
 TEST(MorseTest, TranslationTest1) {
 
     string morseInput = "-.-- . ...";
@@ -16,6 +11,7 @@ TEST(MorseTest, TranslationTest1) {
     EXPECT_EQ(translator(morseInput), expected);
 }
 
+// Writer: Isaac
 TEST(MorseTest, TranslationTest2) {
 
     string morseInput = "-. ---";
@@ -24,6 +20,7 @@ TEST(MorseTest, TranslationTest2) {
     EXPECT_EQ(translator(morseInput), expected);
 }
 
+// Writer: Isaac
 TEST(MorseTest, NoTranslationTest1) {
 
     string morseInput = "--------"; // Something that we dont plan on recognizing
@@ -53,6 +50,7 @@ TEST(FileSearchTest, TestFoundWordInFile) {
     ASSERT_TRUE(found);
 }
 
+// Writer: Kristen
 TEST(FileSearchTest, TestNotFoundWordInFile) {
     char filename[] = "wordList.txt";
     string nonDesiredWord = "world";
@@ -60,6 +58,7 @@ TEST(FileSearchTest, TestNotFoundWordInFile) {
     ASSERT_FALSE(notFound);
 }
 
+// Writer: Kristen
 TEST(FileSearchTest, TestNonExistingFile) {
     char nonExistingFile[] = "nonexisting.txt";
     string desiredWord = "hello";
@@ -78,6 +77,7 @@ protected:
     }
 };
 
+// Writer: Kristen
 // Test case that checks if a generated math problem is valid
 TEST_F(MathProblemTest, MathProblemPass) {
     //string problem = generateMathProblem();
@@ -91,6 +91,7 @@ TEST_F(MathProblemTest, MathProblemPass) {
     EXPECT_TRUE(solveMathProblem(num1, num2, input));
 }
 
+// Writer: Kristen
 // Test case that checks if a user input is a valid math problem
 TEST_F(MathProblemTest, MathProblemFail) {
     mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
