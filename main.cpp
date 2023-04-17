@@ -31,8 +31,10 @@ int main() {
 
         count++;
         if (count >= 3 && rand() % 2 == 0) {
-            num1 = rand() % 10 + 1;
-            num2 = rand() % 10 + 1;
+            mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+            uniform_int_distribution<int> dist(1, 10);
+            int num1 = dist(rng);
+            int num2 = dist(rng);
 
             cout << "Solve the following problem: " << num1 << " + " << num2 << " = ";
             cin >> input;
