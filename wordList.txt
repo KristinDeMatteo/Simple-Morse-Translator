@@ -1,0 +1,7 @@
+yes
+no
+assembly
+yesterday
+morse
+winning
+hello
