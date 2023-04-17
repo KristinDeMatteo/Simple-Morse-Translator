@@ -101,7 +101,7 @@ string returner(string word) {
     ifstream wordFile(filename);
 
     mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-    uniform_int_distribution<int> dist(0, 5);
+    uniform_int_distribution<int> dist(1, 6);
     int line = dist(rng); //Random number for picking random language translation of word
 
     if (!wordFile.is_open()) {

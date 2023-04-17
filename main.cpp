@@ -26,6 +26,7 @@ int main() {
                 break;
             }
         }
+        output = returner(output);
         cout << "Output: " << output << endl;
 
         count++;
