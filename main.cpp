@@ -16,18 +16,25 @@ int main() {
         }
 
         string output = translator(input);
+        
+        bool match = false;
 
         // If incorrect input given, also generates random ascii cat
         bool matchFound = false;
         string reactionExample[] = { "| o_o |" , "( o.o )", "|o o  |", "bro... c'mon." };
         for (int j = 0; j < 4; ++j) {
             if (output == reactionExample[j]) {
+                match = true;
                 printAsciiFile();
                 break;
             }
         }
-        output = returner(output);
-        cout << "Output: " << output << endl;
+        if (match == true) {
+            cout << "Output: " << output << endl;
+        } else{
+            output = returner(output);
+            cout << "Output: " << output << endl;
+        }
 
         count++;
         if (count >= 3 && rand() % 2 == 0) {
