@@ -53,7 +53,7 @@ string translator(string input) {
     };
 
     string morseInput;
-    stringstream ss(morseInput);
+    stringstream ss(input);
     string code, result = "";
     while (ss >> code) {
         if (morseMap.find(code) != morseMap.end()) {
@@ -130,7 +130,7 @@ bool solveMathProblem(int num1, int num2, int input) {
 
 TEST(MorseTest, TranslationTest1) {
 
-    string morseInput = "- .-- . ...";
+    string morseInput = "-.-- . ...";
     string expected = "yes";
 
     EXPECT_EQ(translator(morseInput), expected);
@@ -153,10 +153,15 @@ TEST(MorseTest, NoTranslationTest1) {
     // No clue how to write this one well, if it works then it should throw a fail for every reaction that isnt matched but one will
     // If nothing matches then the test overall fails
     // IF multiple things match... uh oh.
-    for (int i = 0; i < 4; ++i) {
-        EXPECT_EQ(translator(morseInput), reactionExample[i]);
+    string result = translator(morseInput);
+    bool matchFound = false;
+    for (int j = 0; j < 3; ++j) {
+        if (result == reactionExample[j]) {
+            matchFound = true;
+            break;
+        }
     }
-
+    EXPECT_TRUE(matchFound);
 }
 
 // Tests for Finding a word in file written by Kristin
